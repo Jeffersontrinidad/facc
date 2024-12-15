@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trinidad Billing System</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+
+<body>
+    <!-- Página de inicio de sesión -->
+    <div id="loginPage">
+        <div class="login-container">
+            <h1>Trinidad Billing System</h1>
+            <!-- Título en inglés -->
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Usuario:</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit">Iniciar sesión</button>
+                <p id="loginError" class="error">Usuario o contraseña incorrectos.</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Página principal de facturación (inicialmente oculta) -->
+    <div id="billingPage" class="container" style="display: none;">
+        <header>
+            <h2>Trinidad Billing System</h2>
+            <!-- Título en inglés -->
+            <div class="theme-selector">
+                <label for="themeSelector">Selecciona tema:</label>
+                <select id="themeSelector">
+                    <option value="default">Por defecto</option>
+                    <option value="dark">Oscuro</option>
+                    <option value="light">Claro</option>
+                </select>
+            </div>
+            <!-- Opción de cerrar sesión -->
+            <button id="logoutButton">Cerrar sesión</button>
+        </header>
+
+        <section id="billingSection">
+            <h3>Agregar Producto</h3>
+            <form id="billingForm">
+                <div class="form-group">
+                    <label for="itemName">Producto:</label>
+                    <input type="text" id="itemName" required>
+                </div>
+                <div class="form-group">
+                    <label for="itemPrice">Precio:</label>
+                    <input type="number" id="itemPrice" required>
+                </div>
+                <div class="form-group">
+                    <label for="itemQuantity">Cantidad:</label>
+                    <input type="number" id="itemQuantity" required>
+                </div>
+                <button type="button" id="addItem">Agregar Producto</button>
+            </form>
+        </section>
+
+        <section id="invoiceSection">
+            <h3>Productos Agregados</h3>
+            <table id="invoiceTable">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <div id="invoiceTotal">
+                <p>Total: $<span id="grandTotal">0.00</span></p>
+                <button id="generateInvoice">Generar Factura</button>
+                <button type="button" id="clearInvoice">Limpiar</button>
+            </div>
+        </section>
+
+        <section id="invoiceOutput" style="display: none;">
+            <h3>Factura Generada</h3>
+            <div id="invoiceDetails"></div>
+            <button id="printInvoice">Imprimir Factura</button>
+        </section>
+    </div>
+
+    <script src="js.js"></script>
+</body>
+
+</html>
